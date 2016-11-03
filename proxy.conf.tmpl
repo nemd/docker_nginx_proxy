@@ -4,7 +4,7 @@ upstream emby {
 
 server {
     listen      80;
-    server_name emby;
+    server_name emby emby.gn.reaper.pl;
 
     location / {
         proxy_pass  http://emby;
