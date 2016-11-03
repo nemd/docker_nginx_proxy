@@ -15,6 +15,9 @@ EXPOSE 80/tcp 443/tcp
 COPY nginx.conf.tmpl /tmp
 COPY proxy.conf.tmpl /tmp
 
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
 CMD ["dockerize",\
 		"-template", "/tmp/nginx.conf.tmpl:/etc/nginx/nginx.conf", \
 		"-template", "/tmp/proxy.conf.tmpl:/etc/nginx/conf.d/proxy.conf", \
