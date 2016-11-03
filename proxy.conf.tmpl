@@ -24,7 +24,7 @@ server {
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
     location / {
-        proxy_pass https://owncloud_docker;
+        proxy_pass http://owncloud_docker;
     }
 }
 
