@@ -15,6 +15,11 @@ EXPOSE 80/tcp 443/tcp
 COPY nginx.conf.tmpl /tmp
 COPY proxy.conf.tmpl /tmp
 
+RUN mkdir /etc/nginx/ssl
+
+COPY *.crt /etc/nginx/ssl
+COPY *.key /etc/nginx/ssl
+
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
