@@ -7,7 +7,7 @@ server {
     server_name emby;
 
     location / {
-        proxy_pass  emby;
+        proxy_pass  http://emby;
     }
 }
 
