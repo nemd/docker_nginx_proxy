@@ -1,0 +1,14 @@
+upstream emby {
+    server emby:8096;
+}
+
+server {
+    listen      80;
+    server_name emby;
+
+    location / {
+        proxy_pass  emby;
+    }
+}
+
+
