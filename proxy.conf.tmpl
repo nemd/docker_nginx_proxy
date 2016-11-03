@@ -16,11 +16,15 @@ server {
 }
 
 server {
-    listen 80;
+    listen 443 ssl;
     server_name cloud.gn.reaper.pl;
 
+    ssl_certificate /etc/nginx/ssl/gn.reaper.pl.crt;
+    ssl_certificate_key /etc/nginx/ssl/gn.reaper.pl.key;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
     location / {
-        proxy_pass http://owncloud_docker;
+        proxy_pass https://owncloud_docker;
     }
 }
 
